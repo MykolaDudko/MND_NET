@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// join (операция объединения) - устанавливает соотношение данных из двух разных источников.
+// join (join operation) - Nastavuje vzťah údajov z dvoch rôznych zdrojov. --- JAK V T-SQL
 
 namespace LINQ
 {
@@ -22,7 +22,7 @@ namespace LINQ
     {
         static void Main()
         {
-            // Построить коллекцию сотрудников.
+            //Kolekacia zamestanncov
             var employees = new List<EmployeeID>
             {
                 new EmployeeID {Id = "111", Name = "Ivan Ivanov"},
@@ -31,7 +31,7 @@ namespace LINQ
                 new EmployeeID {Id = "444", Name = "Alex Alexeev"}
             };
 
-            // Построить коллекцию национальностей.
+            //Kolekacia narodnosti
             var empNationalities = new List<EmployeeNationality>
             {
                 new EmployeeNationality {Id = "111", Nationality = "Russian"},
@@ -39,12 +39,11 @@ namespace LINQ
                 new EmployeeNationality {Id = "333", Nationality = "American"},
             };
 
-            // Построить запрос.
-            // Получение списка имен всех сотрудников вместе с их национальностями, при этом отсортировав список по убыванию.
+            //Ziskame zoznam vsektych zamestnancov spolu s ich narodnostov pri zoradi v zostupnom poradi 
             var query = from emp in employees
-                        join n in empNationalities
+                        join n in empNationalities 
                         on emp.Id equals n.Id
-                        orderby n.Nationality descending // ascending - по возрастанию | descending - по убыванию.
+                        orderby n.Nationality descending // ascending - vzostupne| descending - zostupne.
                         select new
                         {
                             Id = emp.Id,
@@ -55,7 +54,7 @@ namespace LINQ
             foreach (var person in query)
                 Console.WriteLine("{0}, {1}, \t{2}", person.Id, person.Name, person.Nationality);
 
-            // Delay.
+       
             Console.ReadKey();
         }
     }

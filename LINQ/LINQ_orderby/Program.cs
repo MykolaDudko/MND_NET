@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// orderby - используется для сортировки (последовательности) результата запроса.
+// orderby -slúži na zoradenie (poradie) výsledku dotazu.
 
 namespace LINQ
 {
@@ -17,7 +17,7 @@ namespace LINQ
     {
         static void Main()
         {
-            // Построить коллекцию сотрудников с национальностями.
+
             var employees = new List<Employee>
             {
                 new Employee {LastName = "Ivanov", FirstName = "Ivan", Nationality = "Russian"},
@@ -25,12 +25,11 @@ namespace LINQ
                 new Employee {LastName = "Petrov", FirstName = "Petr", Nationality = "American"}
             };
 
-            // Построить запрос.
-            // Получение списка имен всех сотрудников вместе с их национальностями.
+            
             var query = from emp in employees
                         orderby emp.Nationality ascending,
-                        emp.LastName descending, // ascending - по возрастанию | descending - по убыванию.
-                        emp.FirstName descending // по умолчанию - ascending.
+                        emp.LastName descending, 
+                        emp.FirstName descending // - ascending.
                         select emp;
 
             foreach (var person in query)

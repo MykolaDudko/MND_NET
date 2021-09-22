@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-// into - подобно let, позволяет определить локальный по отношению к запросу идентификатор.
+// into - podobne ako let, umoznuje definovat indefikator
 
 namespace LINQ
 {
@@ -11,8 +11,7 @@ namespace LINQ
         {
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            // Построить запрос.
-            // Разделение чисел на четные и нечетные.
+            // Rozdelenie cisel na parne a neparne 
             var query = from x in numbers
                         group x by x % 2 into partition
                         where partition.Key == 0
@@ -30,7 +29,6 @@ namespace LINQ
                 Console.WriteLine();
             }
 
-            // Delay.
             Console.ReadKey();
         }
     }

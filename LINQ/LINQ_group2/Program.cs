@@ -38,7 +38,7 @@ namespace LINQ
                     Console.WriteLine(employee.FirstName);
             }
 
-            // Delay.
+          
             Console.ReadKey();
         }
     }

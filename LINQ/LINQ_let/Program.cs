@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// let - представляет новый локальный идентификатор, на который можно ссылаться в остальной части запроса.
-// Его можно представить, как локальную переменную видимую только внутри выражения запроса.
+// let - Predstavuje nový lokálny identifikátor, na ktorý je možné odkazovať vo zvyšku požiadavky.
+// Dá sa to chápať ako lokálna premenná, viditeľná iba vo výrazu požiadavky.
 
 namespace LINQ
 {
@@ -17,7 +17,6 @@ namespace LINQ
     {
         static void Main()
         {
-            // Построить коллекцию сотрудников.
             var employees = new List<Employee>
             {
                 new Employee {LastName = "Ivanov", FirstName = "Ivan"},
@@ -25,16 +24,14 @@ namespace LINQ
                 new Employee {LastName = "Petrov", FirstName = "Petr"}
             };
 
-            // Построить запрос.
             var query = from emp in employees
-                        let fullName = emp.FirstName + " " + emp.LastName // let - новый локальный идентификатор.
+                        let fullName = emp.FirstName + " " + emp.LastName // let - Novy lokalny indefikator
                         orderby fullName descending
                         select fullName;
 
             foreach (var person in query)
                 Console.WriteLine(person);
 
-            // Delay.
             Console.ReadKey();
         }
     }
